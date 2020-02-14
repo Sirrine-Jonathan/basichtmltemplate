@@ -4,19 +4,44 @@
 <title>Messing around</title>
 <style>
 	#btn {
-		font-size: 300px;
+		font-size: 30px;
+	}
+
+	.component {
+		border: 1px solid black;
+		background-color: green;
+		width: 200px;
+		margin: 10px;
+		color: #fff;
+		padding: 20px;
 	}
 </style>
 </head>
 <body>
 	<h1>Messing Around</h1>
+	<div class="component">Here is a class div</div>
+	<div class="component">Here is another class div</div>
+	<div class="component" id="userInputDiv">Your input will appear here</div>
 	<button id="btn">Click Me</button>
 	<a href="tel:6127707725">Call Jon</a>
+	<button id="otherBtn" class="component">Change this text by clicking</button>
 <script>
 	let testVariableHere = "hello";
 	let btn = document.querySelector('#btn');
 	btn.addEventListener('click', function(){
 		alert('You clicked');
+	})
+
+	function getUserInput(){
+		let userInput = prompt('enter some input here');
+		return userInput;
+	}
+
+	document.querySelector('#otherBtn').addEventListener('click', function(e){
+		let thisBtn = this;
+		let userInput = getUserInput();
+		thisBtn.innerHTML = userInput;
+		document.querySelector('#userInputDiv').innerHTML = "user input chaned the button";
 	})
 </script>
 </body>
